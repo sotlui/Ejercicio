@@ -1,9 +1,12 @@
-import '../stylesheet/BotonClear.css';
+import '../stylesheet/BotonClear.css'
 
-const BotonCrear = (props) =>(
-    <div className = 'boton-clear'>
-        { props.children }
-    </div>
-);
+const BotonCrear = (props) => (
+  <div
+    className='boton-clear'
+    onClick={() => props.onClic()}
+  >
+    {props.children}
+  </div>
+)
 
-export default BotonCrear;
+export default BotonCrear

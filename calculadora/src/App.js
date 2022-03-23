@@ -1,59 +1,68 @@
-import { useState } from 'react';
-import './App.css';
-import Boton from './components/Boton';
-import BotonCrear from './components/BotonClear';
-import Pantalla from './components/Pantalla';
-import freeCodeCampLogo from './img/freecodecamp-logo.png';
+/* eslint-disable no-undef */
+import { useState } from 'react'
+import { evaluate } from 'mathjs'
+import './App.css'
+import Boton from './components/Boton'
+import BotonCrear from './components/BotonClear'
+import Imagen from './components/Imagen'
+import Pantalla from './components/Pantalla'
+import freeCodeCampLogo from './img/freecodecamp-logo.png'
 
-function App() {
+function App () {
+  const [input, setInput] = useState('')
 
-  const [input, setInput] = useState('');
+  const handleInput = val => {
+    setInput(input + val)
+  }
 
-  const handleInput = val =>{
-    setInput( input + val );
-  };
+  const handleClear = () => {
+    setInput('')
+  }
+
+  const calcularResultado = () => {
+    if (input) {
+      setInput(evaluate(input).toFixed(4))
+    } else {
+      alert('Favor ingresar valores.')
+    }
+  }
 
   return (
     <div className='App'>
-      <div className='freecodecamp-logo-contenedor'>
-        <img 
-          className='freecodecamp-logo'
-          src = {freeCodeCampLogo}
-          alt='Logo de freeCodeCamp' />
-      </div>
+      <Imagen freeCodeCampLogo={freeCodeCampLogo} />
       <div className='contenedor-calculador'>
-        <Pantalla input = { input }/>
+        <Pantalla input={input} />
         <div className='fila'>
-          <Boton>1</Boton>
-          <Boton>2</Boton>
-          <Boton>3</Boton>
-          <Boton>+</Boton>
+          <Boton onClic={handleInput}>1</Boton>
+          <Boton onClic={handleInput}>2</Boton>
+          <Boton onClic={handleInput}>3</Boton>
+          <Boton onClic={handleInput}>+</Boton>
         </div>
         <div className='fila'>
-          <Boton>4</Boton>
-          <Boton>5</Boton>
-          <Boton>6</Boton>
-          <Boton>-</Boton>
+          <Boton onClic={handleInput}>4</Boton>
+          <Boton onClic={handleInput}>5</Boton>
+          <Boton onClic={handleInput}>6</Boton>
+          <Boton onClic={handleInput}>-</Boton>
         </div>
         <div className='fila'>
-          <Boton>7</Boton>
-          <Boton>8</Boton>
-          <Boton>9</Boton>
-          <Boton>*</Boton>
+          <Boton onClic={handleInput}>7</Boton>
+          <Boton onClic={handleInput}>8</Boton>
+          <Boton onClic={handleInput}>9</Boton>
+          <Boton onClic={handleInput}>*</Boton>
         </div>
         <div className='fila'>
-          <Boton>=</Boton>
-          <Boton>0</Boton>
-          <Boton>.</Boton>
-          <Boton>/</Boton>
+          <Boton onClic={calcularResultado}>=</Boton>
+          <Boton onClic={handleInput}>0</Boton>
+          <Boton nClic={handleInput}>.</Boton>
+          <Boton onClic={handleInput}>/</Boton>
         </div>
         <div className='fila'>
-          <BotonCrear>Clear</BotonCrear>
+          <BotonCrear onClic={handleClear}>Clear</BotonCrear>
         </div>
       </div>
-      
+
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
