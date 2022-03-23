@@ -15,7 +15,7 @@ const TareaFormulario = (props) =>{
     const tareaNueva = {
       id: uuidv4(),
       texto: input,
-      completado: false
+      completada: false,
     }
     props.onSubmit(tareaNueva);
   };
