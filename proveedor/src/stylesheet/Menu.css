@@ -1,0 +1,9 @@
+.contenedor-menu{
+    width: 100%;
+    max-height: 40px;
+    color: white;
+    background-color: #ff0132;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
