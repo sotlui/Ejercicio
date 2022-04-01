@@ -1,5 +1,5 @@
 .contenedor-login{
-    width: 600px;
+    width: 450px;
     min-height: 500px;
     background-color: #d0d0d5;
     padding: 25px;
@@ -33,4 +33,36 @@ label{
     justify-content: flex-start;
     display: flex;
     margin-left: 50px;
+}
+
+.btnLogin{
+    width: 100%;
+    height: 40px;
+    color: white;
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: #266818;
+    border-radius: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.btnLogin:hover{
+    width: 100%;
+    height: 40px;
+    color: black;
+    font-size: 22px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: #2874A6;
+    border-radius: 10px;
+    margin-top: 20px;
+    cursor: pointer;
 }
