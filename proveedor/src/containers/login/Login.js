@@ -1,6 +1,7 @@
 import FormGroupText from '../../components/FormGroupText';
 import FormGroupButton from '../../components/FormGroupButton';
 import '../../stylesheet/Login.css'
+import { Link } from 'react-router-dom';
 
 const Login = () =>{
 
@@ -9,25 +10,37 @@ const Login = () =>{
   }
     return(
         <div className='contenedor-login'>
+          <h1>Iniciar Sesión</h1>
           <form onSubmit={handleUser}>
             <FormGroupText
               label='Usuario'
               name='usuario'
               type='email'
-              placeholder='lsoto@danec.com'   
+              placeholder='micuenta@retension.com'   
             />
             <FormGroupText
-              label='Password:'
+              label='Password'
               name='password'
               type='password'
               placeholder='*******'   
             />
             <FormGroupButton
               type='submit'
-              className='btnLogin'
+              className='btnBoton'
               onClick=''>
-                Login
+                Iniciar Sesión
             </FormGroupButton>
+
+            <FormGroupButton
+              type='button'
+              className='btnBoton'
+              onClick=''>
+                Registrar
+            </FormGroupButton>
+
+            <a href='/#'>
+              ¿Has olvidado tu contraseña?
+            </a> 
           </form>
         </div>
     );
