@@ -1,0 +1,11 @@
+.pagoBusqueda{
+    width: 15%;
+    height: 100vh;
+    background-color: teal;
+}
+
+.pagoContenedor{
+    width: 85%;
+    height: 100vh;
+    background-color: tomato;
+}

@@ -38,9 +38,9 @@ const Login = () =>{
                 Registrar
             </FormGroupButton>
 
-            <a href='/#'>
+            <Link to='/danecProveedor/login/register'>
               ¿Has olvidado tu contraseña?
-            </a> 
+            </Link> 
           </form>
         </div>
     );
