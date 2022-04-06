@@ -1,8 +1,28 @@
+import axios from "axios";
 import FormGroupButton from '../../components/FormGroupButton';
 import FormGroupText from '../../components/FormGroupText';
+import { useEffect, useState} from "react";
 import '../../stylesheet/PagoFactura.css'
+import { urlPagos } from "../../utils/endpints";
 
 const PagoFactura =() =>{
+  const [pagos, setPagos] = useState([]);
+
+  useEffect(() => {
+    cargarDatos();
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [1]);
+
+  function cargarDatos() {
+    axios.get(urlPagos)
+      .then((respuesta)=>{
+          console.log("AQQUUUUQUQ: ",respuesta.data.pago);
+          setPagos(respuesta.data.pago)
+      }).catch((error)=>{
+        console.log(error);
+      })
+      };
+
     return(
         <>
           <div className='pagoBusqueda'>
@@ -46,6 +66,17 @@ const PagoFactura =() =>{
                 </tr>
               </thead>
               <tbody>
+                {pagos ? pagos.map((pago)=>(
+                  <tr key={pago.num_factura}>
+                     <td>{pago.nombre_empresa}</td>
+                     <td>{pago.num_factura}</td>
+                     <td>{pago.fecha_factura}</td>
+                     <td>{pago.importe_bruto.toFixed(2)}</td>
+                     <td>{pago.importe_pago.toFixed(2)}</td>
+                     <td>{pago.fecha_pago}</td>
+                     <td>{pago.cuenta_pago}</td>
+                  </tr>
+                )):null};
                 <tr>
                   <td>DANEC</td>
                   <td>001001000041651</td>
