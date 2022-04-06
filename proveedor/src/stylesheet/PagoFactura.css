@@ -1,11 +1,109 @@
 .pagoBusqueda{
-    width: 15%;
+    width: 20%;
     height: 100vh;
-    background-color: teal;
+    background-color: #d0d0d5;
 }
 
 .pagoContenedor{
-    width: 85%;
+    width: 80%;
     height: 100vh;
-    background-color: tomato;
+    background-color: #d0d0d5;
+}
+
+/*Tabla diseño*/
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .7rem;
+}
+
+th, td{
+  border: solid 1px #e0e0e0;
+  padding: 5px;
+}
+
+th{
+  background-color: #0F3702;
+  color: white;
+}
+
+tr{
+  color: black;
+}
+
+tr:nth-child(even){
+  background-color: #baf3a9;
+}
+
+tr:hover{
+  background-color: #F5F1E5;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+/*Busqueda*/
+label{
+  font-size: 16px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+input{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 90%;
+  height: 50px;
+  margin: 0 20px 0 10px;
+  font-size: 16px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+input:hover{
+  border: 2px solid #02558d;
+}
+
+button{
+  width: 90%;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background-color: #266818;
+  border-radius: 10px;
+  margin: 30px 20px 0 10px;
+  cursor: pointer;
+}
+
+button:hover{
+  width: 90%;
+  height: 50px;
+  color: black;
+  font-size: 22px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background-color: #2874A6;
+  border-radius: 10px;
+  margin: 30px 20px 0 10px;
+  cursor: pointer;
+}
+
+h1{
+  margin: 10px 0 10px 0;
+  font-size: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 20px;
+  color: #1b1b32;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
