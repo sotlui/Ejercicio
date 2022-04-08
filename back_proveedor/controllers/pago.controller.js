@@ -19,5 +19,15 @@ module.exports = {
     } catch (error) {
       res.status(400).json(error)
     }
+  },
+
+  countData: async (req, res) => {
+    try {
+      const totalData = await pagos.countData()
+      res.status(200).json({ totalData })
+    } catch (error) {
+      res.status(400).json(error)
+    }
   }
+
 }

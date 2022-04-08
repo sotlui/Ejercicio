@@ -6,18 +6,38 @@ import '../../stylesheet/PagoFactura.css'
 import { urlPagos } from "../../utils/endpints";
 
 const PagoFactura =() =>{
-  const [pagos, setPagos] = useState([]);
 
+  const [totalData, setTotalData] = useState(28);
+
+  useEffect(() => {
+    axios.get(`${urlPagos}/0503260168`)
+    .then((result)=>{
+      setTotalData(JSON.parse(result.data.totalData))
+      console.log("TOTALTPAGE; ",JSON.parse(result.data.totalData));
+    })
+    .catch((error)=>{
+      console.log("ERROR:", error); 
+    })
+     //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [1]);
+
+
+  const [data, setData] = useState([]);
+
+  const [page, setPage] = useState(1);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  
   useEffect(() => {
     cargarDatos();
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [1]);
-
+  
+ 
   function cargarDatos() {
     axios.get(urlPagos)
       .then((respuesta)=>{
           console.log("AQQUUUUQUQ: ",respuesta.data.pago);
-          setPagos(respuesta.data.pago)
+          setData(respuesta.data.pago)
       }).catch((error)=>{
         console.log(error);
       })
@@ -66,7 +86,7 @@ const PagoFactura =() =>{
                 </tr>
               </thead>
               <tbody>
-                {pagos ? pagos.map((pago)=>(
+                {data ? data.map((pago)=>(
                   <tr key={pago.num_factura}>
                      <td>{pago.nombre_empresa}</td>
                      <td>{pago.num_factura}</td>
@@ -76,25 +96,7 @@ const PagoFactura =() =>{
                      <td>{pago.fecha_pago}</td>
                      <td>{pago.cuenta_pago}</td>
                   </tr>
-                )):null};
-                <tr>
-                  <td>DANEC</td>
-                  <td>001001000041651</td>
-                  <td>11/03/2022</td>
-                  <td>447,66</td>
-                  <td>447,66</td>
-                  <td>25/03/2022</td>
-                  <td>02052009994-BANCO DE LA PRODUCCION</td>
-                </tr>
-                <tr>
-                  <td>PDE</td>
-                  <td>001001000041651</td>
-                  <td>11/03/2022</td>
-                  <td>447,66</td>
-                  <td>447,66</td>
-                  <td>25/03/2022</td>
-                  <td>02052009994-BANCO DE LA PRODUCCION</td>
-                </tr>
+                )):null}
               </tbody>
             </table>
           </div>

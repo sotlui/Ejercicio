@@ -21,5 +21,22 @@ module.exports = {
       pagos.push(pagoSchema)
     })
     return pagos
+  },
+
+  countData: async () => {
+    // const totalData = null
+    const result = await db.Open(pgs.countProveedor, [], false)
+    const totalData = result.rows[0]
+    console.log(result.rows[0])
+
+    /*
+    result.rows.map(pg => {
+      const pagoSchema = {
+        totalData: pg[0]
+      }
+      totalData.push(pagoSchema)
+    })
+    */
+    return totalData
   }
 }
