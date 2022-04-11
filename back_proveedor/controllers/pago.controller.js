@@ -13,8 +13,10 @@ module.exports = {
   },
 */
   findAll: async (req, res) => {
+    console.log('Params: ', req.query)
+    console.log('Params: ', req.query)
     try {
-      const pago = await pagos.findAll()
+      const pago = await pagos.findAll(req, res)
       res.status(200).json({ pago })
     } catch (error) {
       res.status(400).json(error)

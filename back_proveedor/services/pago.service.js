@@ -5,9 +5,9 @@ const { pgs } = require('../models')
 module.exports = {
 
   // insert: (body) => db.Open(pgs.pagoProveedor, body, true),
-  findAll: async () => {
+  findAll: async (req, res) => {
     const pagos = []
-    const result = await db.Open(pgs.pagoProveedor, [], false)
+    const result = await db.Open(pgs.pagoProveedor, req.query, false)
     result.rows.map(pg => {
       const pagoSchema = {
         nombre_empresa: pg[0],

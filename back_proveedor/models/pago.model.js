@@ -5,7 +5,7 @@ const pagoProveedor = ` select * from(
       where p.cedula_o_ruc ='1791889789001'
       order by p.fecha_pago desc
     ) a 
-  where rownum <=10) where row_num >0 `
+  where rownum <=:rowsRecords) where row_num >:pagina `
 
 const countProveedor = ` select count (p.cod_proveedor) totalPagos from qry_webcp.v_qryweb_pagos_ejecutados p  
 where p.cedula_o_ruc ='1791889789001' `
