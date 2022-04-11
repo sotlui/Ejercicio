@@ -4,6 +4,7 @@ import FormGroupText from '../../components/FormGroupText';
 import { useEffect, useState} from "react";
 import '../../stylesheet/PagoFactura.css'
 import { urlPagos } from "../../utils/endpints";
+import Paginacion from "utils/paginacion";
 
 const PagoFactura =() =>{
 
@@ -23,9 +24,10 @@ const PagoFactura =() =>{
 
 
   const [data, setData] = useState([]);
-
-  const [page, setPage] = useState(1);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [totalDePaginas, setTotalDePaginas] = useState(0);
+  const [recordsPorPagina, setRecordsPorPagina] = useState(10);
+  const [rowsRecords, setRowsRecords] = useState(10);
+  const [pagina, setPagina] = useState(1);
   
   useEffect(() => {
     cargarDatos();
@@ -99,6 +101,11 @@ const PagoFactura =() =>{
                 )):null}
               </tbody>
             </table>
+            <Paginacion totalPages={totalDePaginas}
+              paginaActual={pagina} 
+              rowsRecords = {rowsRecords}
+              recordsPorPagina ={recordsPorPagina} 
+              onChange={nuevaPagina => setPagina(nuevaPagina)} />
           </div>
 
         </>
