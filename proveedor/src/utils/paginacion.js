@@ -1,4 +1,6 @@
+import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 import { useState } from "react";
+import 'stylesheet/Paginacion.css'
 
 const Paginacion = (props) => {
   const [back, setBack] = useState(false);
@@ -31,13 +33,13 @@ const Paginacion = (props) => {
   };
 
   return (
-    <div>
-      <button onClick={() => backPagina()} disabled={back}>
-        Atras
+    <div className='paginacion-contenedor'>
+      <button className='btnBack' onClick={() => backPagina()} disabled={back}>
+      <AiOutlineLeft className='tarea-icono'/>
       </button>
-      {contador}
-      <button onClick={() => nextPagina()} disabled={back}>
-        Siguiente
+      <span>{contador}</span>
+      <button className='btnNext' onClick={() => nextPagina()} disabled={back}>
+        <AiOutlineRight className='tarea-icono'/>
       </button>
     </div>
   );
