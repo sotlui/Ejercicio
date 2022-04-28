@@ -8,14 +8,19 @@ import Paginacion from "utils/paginacion";
 
 const PagoFactura = () => {
   const [totalData, setTotalData] = useState(0);
+  let docu = '1791889789001';
 
   useEffect(() => {
     axios
-      .get(`${urlPagos}/0503260168`)
+      .get(`${urlPagos}/count`, { params: { ruc: docu }, })
       .then((result) => {
-        setTotalData(Math.ceil(JSON.parse(result.data.totalData/recordsPorPagina)));
-        console.log("TOTALTPAGE; ", Math.ceil(JSON.parse(result.data.totalData/recordsPorPagina)));
-
+        setTotalData(
+          Math.ceil(JSON.parse(result.data.totalData / recordsPorPagina))
+        );
+        console.log(
+          "TOTALTPAGE; ",
+          Math.ceil(JSON.parse(result.data.totalData / recordsPorPagina))
+        );
       })
       .catch((error) => {
         console.log("ERROR:", error);
@@ -37,7 +42,7 @@ const PagoFactura = () => {
   function cargarDatos() {
     axios
       .get(urlPagos, {
-        params: { rowsRecords: rowsRecords, pagina: pagina },
+        params: { rowsRecords: rowsRecords, pagina: pagina, ruc: docu  },
       })
       .then((respuesta) => {
         console.log("AQQUUUUQUQ: ", respuesta.data.pago);

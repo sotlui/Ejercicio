@@ -7,6 +7,6 @@ const { pago } = require('../controllers')
 // router.post('/pago', PlantacionController.insert)
 
 router.get('/pago', pago.findAll)
-router.get('/pago/:ruc', pago.countData)
+router.get('/pago/count', pago.countData)
 
 module.exports = router

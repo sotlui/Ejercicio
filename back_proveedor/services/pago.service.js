@@ -23,20 +23,11 @@ module.exports = {
     return pagos
   },
 
-  countData: async () => {
-    // const totalData = null
-    const result = await db.Open(pgs.countProveedor, [], false)
+  countData: async (req, res) => {
+    console.log('RUCCC: ', req.query)
+    const result = await db.Open(pgs.countProveedor, req.query, false)
     const totalData = result.rows[0]
     console.log(result.rows[0])
-
-    /*
-    result.rows.map(pg => {
-      const pagoSchema = {
-        totalData: pg[0]
-      }
-      totalData.push(pagoSchema)
-    })
-    */
     return totalData
   }
 }

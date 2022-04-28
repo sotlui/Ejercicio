@@ -13,8 +13,7 @@ module.exports = {
   },
 */
   findAll: async (req, res) => {
-    console.log('Params: ', req.query)
-    console.log('Params: ', req.query)
+    console.log('ParamsFIND: ', req.query)
     try {
       const pago = await pagos.findAll(req, res)
       res.status(200).json({ pago })
@@ -24,8 +23,9 @@ module.exports = {
   },
 
   countData: async (req, res) => {
+    console.log('ParamsCOUNT: ', req.query)
     try {
-      const totalData = await pagos.countData()
+      const totalData = await pagos.countData(req, res)
       res.status(200).json({ totalData })
     } catch (error) {
       res.status(400).json(error)
